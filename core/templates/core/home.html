@@ -1,0 +1,65 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<header class="masthead">
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+                    <h2 style="text-align: center;">Galeria</h2>
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <img class="center" src="{% static 'core/' %}imagen/arbusto1.jpg" alt="ARBUSTOS" style="width:40%;">
+                        </div>
+                        <div class="mySlides fade">
+                            <img class="center" src="{% static 'core/' %}imagen/flor1.jpg" alt="FLORES" style="width:40%;">
+                        </div>
+                        <div class="mySlides fade">
+                            <img class="center" src="{% static 'core/' %}imagen/macetero1.jpg" alt="MACETEROS" style="width:40%;">
+                        </div>
+                        <div class="mySlides fade">
+                            <img class="center" src="{% static 'core/' %}imagen/tierra1.jpg" alt="TIERRA" style="width:40%;">
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1)">❮</a>
+                        <a class="next" onclick="plusSlides(1)">❯</a>
+                    </div>
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                        <span class="dot" onclick="currentSlide(4)"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
+{% endblock contenido%}

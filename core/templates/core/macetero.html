@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<div class="Sidebar">
+    <a href="{% url 'jardineria' %}">Jardineria</a>
+    <a href="{% url 'tierrahoja' %}">Tierra</a>
+    <a href="{% url 'arbustos' %}">Arbustos</a>
+    <a href="{% url 'flores' %}">Flores</a>
+    <a class="active" href="{% url 'macetero' %}">Maceteros</a>
+</div>
+<div class="content">
+    <h2>NUESTROS MACETEROS</h2>
+    <table>
+        <tr>
+            <th class="imagen">
+                <img src="{% static 'core/' %}imagen/macetero1.jpg" alt="MACETEROS" height="250" width="250">
+                <a href=""></a>
+            </th>
+            <th class="imagen">
+                <img src="{% static 'core/' %}imagen/macetero2.jpg" alt="MACETEROS" height="250" width="250">
+                <a href=""></a>
+            </th>
+        </tr>
+        <tr>
+            <th class="imagen">
+                <img src="{% static 'core/' %}imagen/macetero3.jpg" alt="MACETEROS" height="250" width="250">
+                <a href=""></a>
+            </th>
+            <th class="imagen">
+                <img src="{% static 'core/' %}imagen/macetero4.jpg" alt="MACETEROS" height="250" width="250">
+                <a href=""></a>
+            </th>
+        </tr>
+    </table>
+</div>
+{% endblock contenido%}

@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+
+<h2>Insertar producto</h2>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="reset" value="Limpiar">
+    <input type="submit" value="Guardar">
+
+</form>
+{{ mensaje }}
+
+{% endblock %}

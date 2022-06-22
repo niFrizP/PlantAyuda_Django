@@ -1,0 +1,81 @@
+<html id="fondo">
+<html lang="en"></html>
+    <head>
+        <meta charset="utf-8" />
+        <title>PLANTAYUDA</title>
+        {% load static %}
+        <link rel="icon" type="image/x-icon" href="{% static 'core/' %}imagen/favicon.ico">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'core/' %}css/estilo.css" type="text/css">
+        <link rel="stylesheet" href="{% static 'core/' %}css/estiloelementos.css" type="text/css">
+        <link rel="stylesheet" href="{% static 'core/' %}css/estilosidebar.css" type="text/css">
+        <link rel="stylesheet" href="{% static 'core/' %}css/carrusel.css" type="text/css">
+    </head>
+    <body>
+        <header>
+            <div class="navbar">
+                <a class="navbar-brand" href="{% url 'home' %}"> <img src="{% static 'core/' %}imagen/ICONO.png" alt="..." height="40"> PlantAYUDA </a>
+                <a href="{% url 'contacto' %}">Quienes Somos</a>
+                <div class="dropdown">
+                    <button class="btn dropbtn">Productos 
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="{% url 'productos' %}">TODO</a>
+                        <a href="{% url 'jardineria' %}">JARDINERIA</a>
+                        <a href="{% url 'flores' %}">FLORES</a>
+                        <a href="{% url 'macetero' %}">MACETEROS</a>
+                        <a href="{% url 'arbustos' %}">ARBUSTOS</a>
+                        <a href="{% url 'tierrahoja' %}">TIERRA DE HOJA</a>
+                        <a href="{% url 'insertarproductos' %}">Insertar Productos</a>
+
+                    </div>
+                </div>
+                <div>
+
+                        {% if user.is_authenticated %}
+                            <div class="dropdown">
+                                <button class="btn dropbtn" href="#">Usuario: {{user.username}} 
+                                    <i class="fa fa-angle-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a href="{% url 'logout' %}">Cerrar Sesión</a>
+                                </div>
+                            </div>
+                        {% endif %}
+                        <a href="{% url 'home' %}">CARRO COMPRAS</a>
+                        <div class="col-l-auto">
+                            <a class="btn-primary" href="{% url 'login' %}">Inicia Sesión</a>
+                            <a class="btn-primary" href="{% url 'registro' %}">Unete</a>
+                        </div>
+
+
+                </div>
+            </div>
+        </header>
+        <div id="principal">
+            {% block contenido  %}
+
+            {% endblock contenido  %}
+        </div>
+        <footer class="hide_on_mobile">
+            <div class="col-xl-auto">
+                <img src="{% static 'core/' %}imagen/ICONO.png" alt="..." height="90" class="footer.small">PlantAYUDA</div>
+            <div class="container">
+                    <div>
+                        <div class="dropdown">
+                            <button class="btn dropbtn">Control Stock 
+                                <i class="fa fa-angle-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="{% url 'insertarproductos' %}">Insertar Productos</a>
+                                <a href="{% url 'listadoproductos' %}">Listar Productos</a>
+                            </div>
+                        </div>
+                    </div>
+            </div>  
+             
+        </footer>
+
+    </body>
