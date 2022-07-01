@@ -1,12 +1,14 @@
 from django.forms import PasswordInput
 from django.shortcuts import redirect, render
-from core.forms import ProductoForm
-from core.models import Producto
-from django.contrib.auth.decorators import login_required
+from .forms import ProductoForm, CustomUserForm
+from .models import Producto
+from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.models import User
-from .forms import CustomUserForm
-from .forms import ProductoForm
+from .serializers import ProductoSerializer
+
+# Rest_framework
+from rest_framework import viewsets
+from .serializers import ProductoSerializer
 
 # Create your views here.
 def home(request):
@@ -68,7 +70,7 @@ def eliminar_producto(request, id):
     Producto.delete()
 
     return redirect(to="listadoproductos")
-@login_required
+@permission_required('core.add_producto')
 def insertarproductos(request):
     data={
         'form':ProductoForm()
@@ -79,3 +81,7 @@ def insertarproductos(request):
             formulario.save()
             data['mensaje'] = "Añadido Exitosamente!"
     return render(request, 'core/Inventario/insertarproductos.html' ,data)
+
+class ProductoViewSet(viewsets.ModelViewSet):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer

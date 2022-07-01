@@ -1,19 +1,23 @@
 {% extends 'core/base.html' %}
 
 {% block contenido %}
+<div class="grid card">
+    <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
+        <h1 class="h6 mb-0 text-white lh-1">Modificar productos</h1>
+    </div>
+        <div class="card-body">
+            <form action="" method="post">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                </table>
 
-<h2>Modificar productos</h2>
+                <input type="reset" value="Limpiar">
+                <input type="submit" value="Modificar">
 
-<form action="" method="post">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-
-    <input type="reset" value="Limpiar">
-    <input type="submit" value="Modificar">
-
-</form>
+            </form>
+        </div>
+</div>
 
 {{ mensaje }}
 

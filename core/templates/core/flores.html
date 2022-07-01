@@ -3,6 +3,9 @@
 {% load static %}
 
 {% block contenido %}
+
+<link rel="stylesheet" href="{% static 'core/' %}css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="{% static 'core/' %}js/bootstrap.bundle.min.js" type="text/css">
 <div class="Sidebar">
     <a href="{% url 'jardineria' %}">Jardineria</a>
     <a href="{% url 'tierrahoja' %}">Tierra</a>
@@ -10,6 +13,7 @@
     <a class="active" href="{% url 'flores' %}">Flores</a>
     <a href="{% url 'macetero' %}">Maceteros</a>
 </div>
+<hr class="featurette-divider">
 <div class="content">
     <h2>NUESTRAS FLORES</h2>
     <table>

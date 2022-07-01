@@ -20,12 +20,11 @@
             </div>
             <div class="card-body p-4 p-sm-5">
               <h3 class="card-title text-center mb-5 fw-light fs-5">Registro de Usuario</h3>
+              <form action="" method="post">
               {% load crispy_forms_tags %}
-
-              <form action='' method="post">
                 {% csrf_token %}
                 <table>
-                  {{ form.as_table }}
+                  {{ form|crispy }}
                 </table>
                 <div class="d-grid mb-2">
                   <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Registro</button>
