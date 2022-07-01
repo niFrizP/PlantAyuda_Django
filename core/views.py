@@ -39,8 +39,9 @@ def registro(request):
             password = formulario.cleaned_data['password1']
             user = authenticate(username=username, password=password)
             login(request, user)
-        return redirect(to='home')  
+        else : return redirect(to='home')  
     return render(request, 'registration/registro.html', data)
+
 
 def tierrahoja(request):
     return render(request,'core/tierrahoja.html')
