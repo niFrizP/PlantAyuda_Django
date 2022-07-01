@@ -19,11 +19,12 @@
             <div class="card-img-left d-none d-md-flex">
             </div>
             <div class="card-body p-4 p-sm-5">
+              {% load crispy_forms_tags %}
               <h3 class="card-title text-center mb-5 fw-light fs-5">Registro de Usuario</h3>
               <form action="" method="post">
-              {% load crispy_forms_tags %}
-                {% csrf_token %}
+
                 <table>
+                  {% csrf_token %}
                   {{ form|crispy }}
                 </table>
                 <div class="d-grid mb-2">
