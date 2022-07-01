@@ -1,8 +1,13 @@
 from django import urls
 from django.contrib import admin
-from xml.etree.ElementInclude import include
-from django.urls import URLPattern, path
-from .views import home, arbustos, contacto, flores, jardineria, login, macetero, productos, registro, tierrahoja, listadoproductos, insertarproductos, modificarproductos, eliminar_producto
+from django.urls.conf import include
+from django.db import router
+from django.urls import path
+from .views import home, arbustos, contacto, flores, jardineria, login, macetero, productos, registro, tierrahoja, listadoproductos, insertarproductos, modificarproductos, eliminar_producto, ProductoViewSet
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register('Producto',ProductoViewSet)
 
 urlpatterns =[
     path('',home,name="home"),
@@ -19,6 +24,6 @@ urlpatterns =[
     path('insertarproductos/', insertarproductos, name="insertarproductos"),
     path('modificarproductos/<id>/', modificarproductos, name="modificarproductos"),
     path('eliminar_producto/<id>/', eliminar_producto,name="eliminar_producto"),
-
+    path('api/', include(router.urls)),
 ]
 

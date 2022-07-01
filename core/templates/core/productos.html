@@ -3,6 +3,12 @@
 {% load static %}
 
 {% block contenido %}
+<link rel="stylesheet" href="{% static 'core/' %}css/estiloelementos.css" type="text/css">
+<link rel="stylesheet" href="{% static 'core/' %}css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="{% static 'core/' %}js/bootstrap.bundle.min.js" type="text/css">
+
+<hr class="featurette-divider">
+
 <div class="content">
     <div id="myBtnContainer">
       <button class="btn" onclick="filterSelection('all')"> Todos</button>
