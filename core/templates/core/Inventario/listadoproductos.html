@@ -4,7 +4,7 @@
 <div class="b-example-divider"></div>
 <div class="card">
     <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
-        <h1 class="h6 mb-0 text-white lh-1">Insertar producto</h1>
+        <h1 class="h6 mb-0 text-white lh-1">Listado productos</h1>
     </div>
     <div class="card-body">
         <table class="table table-striped">
@@ -14,6 +14,8 @@
                 <th>Cod. producto</th>
                 <th>Categoria</th>
                 <th>Descripcion</th>
+                <th>Accion</th>
+
             </tr>
             {% for p in producto %}
             <tr>
@@ -22,6 +24,7 @@
                 <td>{{ p.cod_producto }}</td>
                 <td>{{ p.categoria }}</td>
                 <td>{{ p.descripcion}}</td>
+                
 
                 <td>
                     <a href="{% url 'modificarproductos' p.id %}">Modificar</a>

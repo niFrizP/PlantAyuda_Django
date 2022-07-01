@@ -51,7 +51,6 @@ def listadoproductos(request):
     }
     return render(request,'core/Inventario/listadoproductos.html', data)
 
-    return render(request, 'core/inventario/insertarproductos.html',data)
 def modificarproductos(request, id):
     productos = Producto.objects.get(id=id)
     data = {
@@ -81,6 +80,7 @@ def insertarproductos(request):
             formulario.save()
             data['mensaje'] = "Añadido Exitosamente!"
     return render(request, 'core/Inventario/insertarproductos.html' ,data)
+    
 
 class ProductoViewSet(viewsets.ModelViewSet):
     queryset = Producto.objects.all()
