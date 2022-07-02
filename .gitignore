@@ -1,2 +1,11 @@
 
+<<<<<<< HEAD
+core/__pycache__/views.cpython-310.pyc
+core/__pycache__/views.cpython-310.pyc
 *.pyc
+*.sqlite3
+core/__pycache__/views.cpython-310.pyc
+core/__pycache__/views.cpython-310.pyc
+=======
+*.pyc
+>>>>>>> 8db331708fa8289de1ec421f105258c418f494e4

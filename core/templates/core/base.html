@@ -13,7 +13,6 @@
             <link rel="stylesheet" href="{% static 'core/' %}css/bootstrap.min.css" type="text/css">
             <link rel="stylesheet" href="{% static 'core/' %}js/bootstrap.bundle.min.js" type="text/css">
             <link rel="stylesheet" href="{% static 'core/' %}css/estilo.css" type="text/css">
-            <link rel="stylesheet" href="{% static 'core/' %}css/estilosidebar.css" type="text/css">
             <link rel="stylesheet" href="{% static 'core/' %}css/carrusel.css" type="text/css">
             <style>
                 .bd-placeholder-img {
@@ -64,26 +63,29 @@
                     <div class="navbar-collapse offcanvas-collapse" id="#navbarSideCollapse">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'home' %}">
-                                    CARRO COMPRAS
+                                <a href="#" class="nav-link text-white">
+                                    <img src="{% static 'core/' %}imagen/carro.png" class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></img>
                                 </a>
-                            </li>
+
                             </li>
                             <li class="nav-item">
-                                    {% if user.is_authenticated %}
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="navbarSupportedContent" role="button" data-bs-toggle="dropdown" aria-expanded="false">Usuario: {{user.username}} </a>                    
-                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                <li><a href="{% url 'logout' %}" class="dropdown-item">Cerrar Sesión</a></li>
-                                        </li>
-                                    {% else %}
-                                        <li class="nav-item">
-                                            <a class="btn btn-lg btn-primary btn-sm" href="{% url 'login' %}">Inicia Sesión</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="btn btn-lg btn-primary btn-sm" href="{% url 'registro' %}">Unete</a>
-                                        </li>
-                                    {% endif %}
+                                {% if user.is_authenticated %}
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarSupportedContent" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hola, {{user.username}} </a>                    
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a href="{% url 'logout' %}" class="dropdown-item">Cerrar Sesión</a></li>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Hola, Inicia sesión
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a href="{% url 'login' %}" class="dropdown-item">Inicia Sesión</a></li>
+                                            <li><a href="{% url 'registro' %}" class="dropdown-item">Registrate</a></li>
+                                        </ul>
+                                    </li>
+                                {% endif %}
                             </li>
                         </ul>
                     </div>
