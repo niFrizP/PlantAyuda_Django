@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.urls.conf import include
 from django.db import router
 from django.urls import path
-from .views import home, arbustos, contacto, flores, jardineria, login, macetero, productos, registro, tierrahoja, listadoproductos, insertarproductos, modificarproductos, eliminar_producto, ProductoViewSet
+from .views import catalogo, home, arbustos, contacto, flores, jardineria, login, macetero, productos, registro, tierrahoja, listadoproductos, insertarproductos, modificarproductos, eliminar_producto, ProductoViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -25,5 +25,6 @@ urlpatterns =[
     path('modificarproductos/<id>/', modificarproductos, name="modificarproductos"),
     path('eliminar_producto/<id>/', eliminar_producto,name="eliminar_producto"),
     path('api/', include(router.urls)),
+    path('catalogo/', catalogo, name="catalogo"),
 ]
 
