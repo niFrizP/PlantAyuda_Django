@@ -28,6 +28,8 @@ def macetero(request):
     return render(request,'core/macetero.html')
 def productos(request):
     return render(request,'core/productos.html')
+def catalogo(request):
+    return render(request,'core/compras/catalogo.html')
 def registro(request):
     data = {'form' :CustomUserForm()}
     if request.method == "POST":
@@ -89,6 +91,7 @@ def insertarproductos(request):
             formulario.save()
             data['mensaje'] = "Añadido Exitosamente!"
     return render(request, 'core/Inventario/insertarproductos.html' ,data)
+
     
 
 class ProductoViewSet(viewsets.ModelViewSet):
