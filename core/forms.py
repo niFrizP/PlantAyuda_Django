@@ -11,7 +11,7 @@ class ProductoForm(ModelForm):
     stock = forms.IntegerField(min_value=1, max_value=600)
     class Meta:
         model = Producto
-        fields = ['nombre', 'stock', 'cod_producto', 'categoria', 'descripcion']
+        fields = '__all__'
 
 class CustomUserForm (UserCreationForm):
     pass
