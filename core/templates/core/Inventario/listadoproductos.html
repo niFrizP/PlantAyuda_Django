@@ -10,8 +10,10 @@
         <table class="table table-striped">
             <tr>
                 <th>Producto</th>
+                <th>Marca</th>
                 <th>Stock</th>
                 <th>Cod. producto</th>
+                <th>Precio</th>
                 <th>Categoria</th>
                 <th>Descripcion</th>
                 <th>Accion</th>
@@ -20,8 +22,10 @@
             {% for p in producto %}
             <tr>
                 <td>{{ p.nombre }}</td>
+                <td>{{ p.marca }}</td>
                 <td>{{ p.stock }}</td>
                 <td>{{ p.cod_producto }}</td>
+                <td>{{ p.precio }}</td>
                 <td>{{ p.categoria }}</td>
                 <td>{{ p.descripcion}}</td>
                 
