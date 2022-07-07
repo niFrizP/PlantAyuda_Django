@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.forms import PasswordInput
 from django.shortcuts import redirect, render
+from .carro import carro
 from .forms import ProductoForm, CustomUserForm
 from .models import Producto
 from django.contrib.auth.decorators import login_required, permission_required
@@ -49,10 +50,6 @@ def registro(request):
         'form':formulario,
     })
 
-
-
-
-
 def tierrahoja(request):
     return render(request,'core/tierrahoja.html')
 def listadoproductos(request):
@@ -97,3 +94,30 @@ def insertarproductos(request):
 class ProductoViewSet(viewsets.ModelViewSet):
     queryset = Producto.objects.all()
     serializer_class = ProductoSerializer
+    
+def catalogo(request):
+    productos = Producto.objects.all()
+    return render(request, "core/compras/catalogo.html",{'productos':productos})
+
+def agregar_carrito(request, cod_producto):
+    carrito = carro(request)
+    producto = Producto.objects.get(id=cod_producto)
+    carrito.agregar(producto)
+    return redirect("core:productos")
+
+def eliminar_carrito (request, cod_producto):
+    carrito = carro(request)
+    producto = Producto.objects.get(id=cod_producto)
+    carrito.eliminar(producto)
+    return redirect("core:productos")
+
+def restar_carrito(request, cod_producto):
+    carrito = carro(request)
+    producto = Producto.objects.get(id=cod_producto)
+    carrito.restar(producto)
+    return redirect("core:productos")
+
+def limpiar_carrito(request):
+    carrito = carro(request)
+    carrito.limpiar()
+    return redirect("core:productos")

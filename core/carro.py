@@ -1,6 +1,3 @@
-from tkinter import SEL_FIRST
-from typing_extensions import Self
-
 class carro:
     def __init__(self, request):
         self.request = request
