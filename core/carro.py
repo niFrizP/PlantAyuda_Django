@@ -14,7 +14,7 @@ class carro:
     
     def agregar(self, producto):
         id = str(producto.id)
-        if id not in self.carro.key():
+        if id not in self.producto.key():
             self.carro[id]={
                 "producto_id":producto.id,
                 "nombre":producto.nombre,
